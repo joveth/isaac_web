@@ -11,3 +11,6 @@ type Article struct {
 func (c Article) Index() revel.Result {
 	return c.Render()
 }
+func (c Article) Push() revel.Result {
+	return c.Render()
+}

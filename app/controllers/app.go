@@ -6,6 +6,7 @@ import (
 	"github.com/qiniu/api.v6/rs"
 	"github.com/revel/revel"
 	"io"
+	"testapp/app/db"
 )
 
 type App struct {
@@ -13,6 +14,14 @@ type App struct {
 }
 
 func (c App) Index() revel.Result {
+	dao,err := db.NewDao()
+	defer dao.Close()
+	collect :=dao.session.DB("isaac").C("user")
+	err = collect.Insert(&model.User{"joveth", "joveth1@163.com","123456","123456"},
+	               &model.User{"joveth1", "joveth1@163.com","123456","123456"})
+        if err != nil {
+                log.Fatal(err)
+        }
 	return c.RenderTemplate("App/Index.html")
 }
 func (c App) Mobile() revel.Result {

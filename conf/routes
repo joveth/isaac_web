@@ -4,12 +4,14 @@
 
 module:testrunner
 
+
 *       /activity                               Activity.Index
 *       /isaac                                  Isaac.Index
 *       /paint                                  Paint.Index
 *       /message                                Message.Index
 *       /article                                Article.Index
-*       /func                               	  App.Funcs
+*       /push                                   Article.Push
+*       /func                               	App.Funcs
 *       /mobile                                 App.Mobile
 *       /                                       App.Index
 POST     /upload                                App.Upload

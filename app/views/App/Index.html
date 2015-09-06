@@ -1,7 +1,7 @@
 {{set . "title" "新闻"}}
 {{set . "home" "active" }}
 {{template "header.html" .}}
-
+{{template "content_tpl.html" .}}
 <div class="content-list">
 	<div class="post">
 		<div class="avatar">
@@ -15,8 +15,8 @@
 		<div class="meta">
 			<a class="tag" href="#">新闻</a> • <a href="#" class="tag" >以撒</a> • <a href="#">joveth</a> • <span class="time">22小时前</span>
 			<div class="data hidden-xs pull-right">
-				  1 <img src="/public/img/coment.png">&nbsp;&nbsp;
-				  10 <img src="/public/img/read.png">
+				  1 <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
+				  10 <span class="glyphicon glyphicon-eye-open"></span>
 			</div>
 		</div>
 	</div>

@@ -25,10 +25,10 @@ a{
 	width:100%;
 	background: #fff;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
-	margin-bottom:28px;
+	margin-bottom:10px;
 }
 .container{
-	width:900px;
+	width:960px;
 }
 .top-bar-inner{
 	min-height: 48px;
@@ -464,4 +464,49 @@ dl.the-comments dd{
 	float:right;
 	font-size: 10px;
 	color: #aaa;
+}
+.sidebox{
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.box-heading {
+  font-weight: bold;
+  padding:5px;
+  border-bottom: 1px solid #eee;
+}
+.sidebar-list{
+	padding:5px;
+}
+.sidebar-list li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+.sidebar-list li a {
+  font-size: 12px;
+  color: #888;
+}
+.sidebar-list li a:hover{
+	text-decoration: underline;
+}
+#footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+.editormd{
+	height:400px!important;
+}
+.width_720{
+	float:left;
+	width:720px;
+}
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  background-color: #fff;
+   border: 1px solid #ddd;
+  border-radius: 4px;
 }

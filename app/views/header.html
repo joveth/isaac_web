@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 {{append . "moreStyles" "css/mystyle.css"}}
+{{append . "moreStyles" "css/editormd.logo.min.css"}}
+{{append . "moreStyles" "css/editormd.min.css"}}
+{{append . "moreStyles" "css/editormd.preview.min.css"}}
+{{append . "moreScripts" "js/jquery-1.9.1.min.js"}}
+
 <html>
   <head>
     <title>{{.title}} - 以撒の窝</title>
@@ -55,12 +60,11 @@
               </li>
 			  <li style="float:right!important;" >
                 <div>
-				 <a href="/#" title="登录后可可以做很多事情哦" >登录</a>
-				 <a href="/#" title="Register." >注册</a>
+				 <a href="/#" title="登录后可可以做很多事情哦" >登录</a> | <a href="/#" title="Register." >注册</a>
 				 </div>
 				<!--<img src="/public/img/iconfont-i.png" class="userlogo" />-->
               </li>
           </ul>
         </div>
     </div>
-	<div class="container">
+	<div class="container" >
