@@ -1,0 +1,100 @@
+{{set . "title" "手机版"}}
+{{set . "mobile" "active" }}
+{{template "header.html" .}}
+
+<style type="text/css">
+	.interest-down .ios-down, .interest-down .android-down {
+		background: url('/public/img/xz-ios.png') no-repeat #209e88;
+		margin-bottom: 17px;
+		display: inline-block;
+		overflow: hidden;
+		zoom: 1;
+		width: 202px;
+		height: 63px;
+		color: #fff;
+		text-align: right;
+		padding: 10px 28px 0 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: #333;
+		outline: 0 none;
+	}
+
+	.interest-down {
+		float: left;
+		width: 258px;
+		padding: 20px;
+	}
+
+	.interest-down .down-tit {
+		font-size: 18px;
+		padding-top: 5px;
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+	}
+
+	h6 {
+		font-size: 38px;
+		color: #18a3dc;
+		line-height: 10px;
+		padding: 0;
+		margin: 40px 0 50px 0;
+	}
+
+	.mob {
+		font: 12px/1.5 Tahoma, 'Droid Sans', 'Hiragino Sans GB', 'Microsoft YaHei';
+		background-color: #e0e0e0;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var navi = navigator.userAgent;
+		//实际上是 在浏览器下载
+		if ((navi.indexOf("Android") >= 0) || (navi.indexOf("Linux") >= 0)) {
+			document.getElementById("imgid").style.width = '100%';
+			document.getElementById("downid").style.width = '100%';
+			//window.location.href = "<c:url value="/app/yuexiao.apk"/>";
+		} else if (navi.indexOf("iPhone") > 0 || (navi.indexOf("iPad") > 0)) {
+			window.location.href = "https://itunes.apple.com/cn/app/yi-sa-tu-jian-for-isaac/id1032588721?mt=8";
+			document.getElementById("imgid").style.width = '100%';
+			document.getElementById("downid").style.width = '100%';
+			if (navi.indexOf("MicroMessenger") >= 0) {
+				document.getElementById("hint").style.display = 'block';
+			}
+		}
+	}
+</script>
+<div class="mob">
+    <span style="padding: 20px; font-size: 24px;display: none;"
+		  id="hint"> 温馨提示：请点击微信右上角按钮，然后在弹出的菜单中，点击在Safari中打开，即可安装 </span>
+	<div style="margin-top: 10px;">
+		<div style="float: left;width: 50%" id="imgid" >
+			<img src="/public/img/appcode.png" style="float:right;max-width: 100%;"/>
+		</div>
+		<div style="float: left;width: 50%;" id="downid">
+			<div style="float: left;" class="interest-down">
+				<h6>以撒图鉴  </h6>
+				<a title="" class="ios-down" target="_blank"
+				   href="https://itunes.apple.com/cn/app/yi-sa-tu-jian-for-isaac/id1032588721?mt=8">
+					<p class="down-tips">iOS Download</p>
+					<p class="down-tit">iPhone版下载</p>
+				</a>
+				<a title="" class="android-down" target="_blank"
+				   style="background: #559cb6 url('/public/img/xz-android.png') no-repeat scroll 0 0;"
+				   href="#">
+					<p class="down-tips">Android Download</p>
+					<p class="down-tit">Android版下载</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{template "footer.html" .}}

@@ -4,7 +4,14 @@
 
 module:testrunner
 
-GET     /                                       App.Index
+*       /activity                               Activity.Index
+*       /isaac                                  Isaac.Index
+*       /paint                                  Paint.Index
+*       /message                                Message.Index
+*       /article                                Article.Index
+*       /func                               	  App.Funcs
+*       /mobile                                 App.Mobile
+*       /                                       App.Index
 POST     /upload                                App.Upload
 # Ignore favicon requests
 GET     /favicon.ico                            404

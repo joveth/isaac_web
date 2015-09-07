@@ -15,6 +15,12 @@ type App struct {
 func (c App) Index() revel.Result {
 	return c.RenderTemplate("App/Index.html")
 }
+func (c App) Mobile() revel.Result {
+	return c.Render()
+}
+func (c App) Funcs() revel.Result {
+	return c.RenderTemplate("App/Func.html")
+}
 func (c App) Upload(file io.Reader) revel.Result {
 	var err error
 	var ret qio.PutRet

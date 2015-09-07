@@ -2,10 +2,10 @@
 {{append . "moreStyles" "css/mystyle.css"}}
 <html>
   <head>
-    <title>{{.title}}</title>
+    <title>{{.title}} - 以撒の窝</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
-    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/public/img/fav.png">
     <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
     {{range .moreStyles}}
       <link rel="stylesheet" type="text/css" href="/public/{{.}}">
@@ -18,37 +18,47 @@
   <div class="main-nav">
     <div class="top-bar">
         <div class="top-bar-inner container">
-		  <img src="/public/img/iconfont-i.png" style="float:left;padding: 11px 0 17px 0;" />
+		 <!--<img src="/public/img/iconfont-i.png" class="logo" />-->
           <ul class="ul-nav">
               <li class="{{.home}}">
-                <a href="/" >首页</a>
+                <a href="/" >新闻</a>
                 {{if .recentCnt}}
                 {{if gt .recentCnt 0}}
                 <span class="navbar-news " title="最近1小时有{{.recentCnt}}个更新">{{.recentCnt}}</span>
                 {{end}}
                 {{end}}
               </li>
-              <li class="{{.write}}">
-                <a href="/#" title="同人文">同人</a>
+              <li class="{{.article}}">
+                <a href="/article" title="同人文">同人</a>
               </li>
-              <li class="{{.mess}}">
-                <a href="/#" title="萌萌哒手绘">手绘</a>
+              <li class="{{.paint}}">
+                <a href="/paint" title="萌萌哒手绘">手绘</a>
               </li>
-              <li class="{{.history}}">
-                <a href="/#" title="以聊">以聊</a>
+              <li class="{{.isaac}}">
+                <a href="/isaac" title="All of the 图鉴">图鉴</a>
               </li>
-              <li class="{{.about}}">
-                <a href="/#" title="All of the 图鉴">图鉴</a>
+              <li class="{{.func}}">
+                <a href="/func" title="各模块">分区</a>
               </li>
-              <li class="{{.ema}}">
-                <a href="/#" title="Some acitivities">活动</a>
+			  <li class="{{.activity}}">
+                <a href="/activity" title="Some activities">活动</a>
+              </li>
+			   <li class="{{.message}}">
+                <a href="/message" title="留言">留言</a>
+              </li>
+			   <li class="{{.mobile}}">
+                <a href="/mobile" title="客户端">手机版</a>
               </li>
               <li><form class="navbar-search pull-left" action="#">
-              	<input type="text" class="search" name="kw" placeholder="搜索">
+              	<input type="text" class="search" name="kw" placeholder="图鉴搜索">
             	</form>
               </li>
-				<li class="{{.ema}}" style="float:right!important" >
-                <a href="/#" title="Login if need.">登录</a>
+			  <li style="float:right!important;" >
+                <div>
+				 <a href="/#" title="Login if need."  >登录</a>
+				 <a href="/#" title="Register." >注册</a>
+				 </div>
+				<!--<img src="/public/img/iconfont-i.png" class="userlogo" />-->
               </li>
           </ul>
         </div>

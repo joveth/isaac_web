@@ -34,6 +34,21 @@ a{
 	min-height: 48px;
 	padding:0 4px;
 }
+.logo{
+	padding: 11px 0 17px 0;
+	position:relative;
+	margin-right:100px;
+	float:right;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration:none;
+}
+a:hover,a:focus{
+	text-decoration:none;
+}
 .ul-nav{
 	position: relative;
 	left: 0;
@@ -43,6 +58,8 @@ a{
 	list-style: none;
 	font-size: 18px;
 	padding:0;
+	width:100%;
+	float:right;
 }
 .ul-nav>li {
 	position: relative;
@@ -50,14 +67,22 @@ a{
 	line-height: 20px;
 }
 .ul-nav>li>a{
-	padding: 14px 24px 17px;
+	padding: 17px 20px 14px;
 	text-decoration: none;
 	display: block;
 	color: black;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
 }
-.ul-nav>li>a:hover,.ul-nav>li>a:focus{
-	color: #1abc9c;
+.ul-nav>li>div{
+	padding: 17px 0 14px 0;
+	
+}
+.ul-nav>li>div>a{
+	text-decoration: none;
+	color: black;
+	
+}
+.ul-nav>li>a:hover,.ul-nav>li>a:focus,.ul-nav>li>div>a:hover,.ul-nav>li>div>a:focus{
+	color: #eb4f38;
 }
 .navbar-news {
 	background-color: #e74c3c;
@@ -78,7 +103,7 @@ a{
 }
 .ul-nav .active > a, .ul-nav .active > a:hover, .ul-nav .active > a:focus {
   background-color: transparent;
-  color: #1abc9c;
+  color: #eb4f38;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; 
@@ -333,16 +358,44 @@ dl.the-comments dd{
 	margin:5px 0 0 0;
 }
 .search{
-	padding: 4px 5px;
+	padding: 3px 5px;
 	border-radius: 15px;
 	width: 126px;
-	margin-top: 10px;
+	margin-top: 12px;
 	font-size: 13px;
     font-weight: normal;
 	background-color: #fff;
     border: 1px solid #ccc;
 }
 .search:focus{
-	border-color:#1abc9c;
+	border-color:#eb4f38;
 	outline:0;
+}
+.userlogo{
+	height:40px;
+	width:40px;
+	margin-top:5px;	
+	border-radius: 20px;
+	border: 1px solid #ccc;
+}
+.userlogo:focus,.userlogo:hover{
+	border-color:#eb4f38;
+	cursor:pointer;
+}
+.func-item-li{
+	width:200px;
+	padding:20px 0;
+	text-align:center;
+	float:left;
+}
+.func-item{
+	font-size:20px;
+	color:#eb4f38;
+	width:200px;
+	text-align:center;
+	display:block;
+	padding:10px 0 0 0;
+}
+.func-item:focus,.func-item:hover{
+	color:#000;
 }
