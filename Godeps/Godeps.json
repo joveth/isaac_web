@@ -1,0 +1,86 @@
+{
+	"ImportPath": "testapp",
+	"GoVersion": "go1.4.2",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.3-3-g07d998d",
+			"Rev": "07d998d174c4e2dc90e2f1989a20724220bca1ff"
+		},
+		{
+			"ImportPath": "github.com/agtorre/gocolorize",
+			"Comment": "v1.0.0",
+			"Rev": "f42b554bf7f006936130c9bb4f971afd2d87f671"
+		},
+		{
+			"ImportPath": "github.com/qiniu/api.v6/auth/digest",
+			"Comment": "v6.0.9-7-g92e32b3",
+			"Rev": "92e32b3d85734d7b1e2f3f0765850ebd0d15eed2"
+		},
+		{
+			"ImportPath": "github.com/qiniu/api.v6/conf",
+			"Comment": "v6.0.9-7-g92e32b3",
+			"Rev": "92e32b3d85734d7b1e2f3f0765850ebd0d15eed2"
+		},
+		{
+			"ImportPath": "github.com/qiniu/api.v6/io",
+			"Comment": "v6.0.9-7-g92e32b3",
+			"Rev": "92e32b3d85734d7b1e2f3f0765850ebd0d15eed2"
+		},
+		{
+			"ImportPath": "github.com/qiniu/api.v6/rs",
+			"Comment": "v6.0.9-7-g92e32b3",
+			"Rev": "92e32b3d85734d7b1e2f3f0765850ebd0d15eed2"
+		},
+		{
+			"ImportPath": "github.com/qiniu/api.v6/url",
+			"Comment": "v6.0.9-7-g92e32b3",
+			"Rev": "92e32b3d85734d7b1e2f3f0765850ebd0d15eed2"
+		},
+		{
+			"ImportPath": "github.com/qiniu/bytes",
+			"Comment": "v1.0.00-7-g9acc46d",
+			"Rev": "9acc46dc91fae3c20c09bb155050f1446d480c95"
+		},
+		{
+			"ImportPath": "github.com/qiniu/rpc",
+			"Comment": "v2.0.01-4-g4d24757",
+			"Rev": "4d247572a7992e118c40d3dd68f7e0576f1d1c6c"
+		},
+		{
+			"ImportPath": "github.com/revel/modules/static/app/controllers",
+			"Comment": "v0.12.0",
+			"Rev": "3589d5bf1d1b6da10a88c53701db2af12dfc0811"
+		},
+		{
+			"ImportPath": "github.com/revel/modules/testrunner/app",
+			"Comment": "v0.12.0",
+			"Rev": "3589d5bf1d1b6da10a88c53701db2af12dfc0811"
+		},
+		{
+			"ImportPath": "github.com/revel/revel",
+			"Comment": "v0.12.0-2-gfa07c8b",
+			"Rev": "fa07c8b61d6935880189a363918bccfd20fe69a0"
+		},
+		{
+			"ImportPath": "github.com/robfig/config",
+			"Rev": "0f78529c8c7e3e9a25f15876532ecbc07c7d99e6"
+		},
+		{
+			"ImportPath": "github.com/robfig/pathtree",
+			"Rev": "41257a1839e945fce74afd070e02bab2ea2c776a"
+		},
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "ea47fc708ee3e20177f3ca3716217c4ab75942cb"
+		},
+		{
+			"ImportPath": "gopkg.in/fsnotify.v1",
+			"Comment": "v1.2.0",
+			"Rev": "96c060f6a6b7e0d6f75fddd10efeaca3e5d1bcb0"
+		}
+	]
+}
