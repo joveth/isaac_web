@@ -399,3 +399,69 @@ dl.the-comments dd{
 .func-item:focus,.func-item:hover{
 	color:#000;
 }
+.content-list{
+	padding: 10px;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+}
+.post {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+.post .avatar {
+    float: left;
+}
+.post .title {
+    margin: 0 20px 0 65px;
+    line-height: 24px;
+    font-size: 15px;
+    font-weight: normal;
+}
+.post .meta {
+    color: #aaa;
+    margin: 7px 0 0 65px;
+    font-size: 12px;
+}
+.post .meta .tag {
+    color: #999;
+    padding: 2px 3px;
+}
+.paint-ul{
+	margin:0;
+	padding:0;
+}
+.paint-ul li{
+	width:190px;
+	padding:10px 8px;
+	margin:10px 10px;
+	float:left;
+	background-color:#fff;
+	text-align:center;
+	border: 1px solid #DDD;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+}
+.paint-img {
+	width:174px;
+}
+.paint-div{
+	padding-top:10px;
+}
+.paint-user{
+	float:left;
+	font-size: 12px;
+	color: #000;
+}
+.paint-span{
+	float:right;
+	font-size: 10px;
+	color: #aaa;
+}
