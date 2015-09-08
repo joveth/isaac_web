@@ -28,3 +28,15 @@ func (c App) Mobile() revel.Result {
 func (c App) Funcs() revel.Result {
 	return c.RenderTemplate("App/Func.html")
 }
+func (c App) Login() revel.Result {
+	return c.RenderTemplate("Login/Login.html")
+}
+func (c App) DoLogin() revel.Result {
+	return c.Render()
+}
+func (c App) Register() revel.Result {
+	return c.RenderTemplate("Login/Register.html")
+}
+func (c App) DoRegister() revel.Result {
+	return  c.Redirect("/")
+}

@@ -4,18 +4,21 @@
 
 module:testrunner
 
-
-*       /activity                               Activity.Index
-*       /isaac                                  Isaac.Index
-*       /paint                                  Paint.Index
-*       /message                                Message.Index
-*       /article                                Article.Index
-*       /push                                   Article.Push
-*       /show/:id                               Article.Show
-POST    /dopush                                 Article.DoPush
-*       /func                               	  App.Funcs
-*       /mobile                                 App.Mobile
-*       /                                       App.Index
+POST     /doregister                            App.DoRegister
+GET       /register                             App.Register
+GET       /login                                App.Login
+POST     /dologin                               App.DoLogin
+GET       /activity                             Activity.Index
+GET      /isaac                                 Isaac.Index
+GET       /paint                                Paint.Index
+GET       /message                              Message.Index
+GET       /article                              Article.Index
+GET       /push                                 Article.Push
+GET       /show/:id                             Article.Show
+POST     /dopush                                Article.DoPush
+GET       /func                               	App.Funcs
+GET       /mobile                               App.Mobile
+GET      /                                      App.Index
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

@@ -7,7 +7,7 @@
 
 {{template "content_tpl.html" .}}
 {{template "navbar.html" .}}
-<form action="/dopush" method="post" id="topic-form" role="form" onSubmit="$('#topic_Tag').val()==-1;return false;">
+<form action="/dopush" method="post" id="topic-form" role="form" onSubmit="if($('#topic_Tag').val()==-1||$('#Body').val()==null||$('#Body').val()==''){return false;}return true;">
      <div class="form-group clearfix">
                     <div class="row">
                          <div class="col-md-3">
@@ -34,7 +34,7 @@
                 </div>
 	  <div class="form-group" >
 		<div id="editormd" >
-          <textarea style="display:none;" placeholder="请输入内容..." name="Body" ></textarea>
+          <textarea style="display:none;" placeholder="请输入内容..." name="Body" id="Body"></textarea>
 		</div>
 	  </div>
 	  <input type="submit" id="submit" class="btn bun-small btn-success" value="{{.title}}" style="float:right;width:100px;" >
