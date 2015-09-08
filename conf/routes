@@ -11,7 +11,9 @@ module:testrunner
 *       /message                                Message.Index
 *       /article                                Article.Index
 *       /push                                   Article.Push
-*       /func                               	App.Funcs
+*       /show/:id                               Article.Show
+POST    /dopush                                 Article.DoPush
+*       /func                               	  App.Funcs
 *       /mobile                                 App.Mobile
 *       /                                       App.Index
 POST     /upload                                App.Upload

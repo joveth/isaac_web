@@ -81,6 +81,11 @@
 			"ImportPath": "gopkg.in/fsnotify.v1",
 			"Comment": "v1.2.0",
 			"Rev": "96c060f6a6b7e0d6f75fddd10efeaca3e5d1bcb0"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Comment": "r2015.06.03-5-g22287ba",
+			"Rev": "22287bab4379e1fbf6002fb4eb769888f3fb224c"
 		}
 	]
 }

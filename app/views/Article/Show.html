@@ -1,0 +1,22 @@
+{{set . "title" "发布"}}
+{{set . "home" "active" }}
+{{append . "moreScripts" "js/editormd.min.js"}}
+{{append . "moreScripts" "js/bootstrap.min.js"}}
+{{template "header.html" .}}
+
+{{template "content_tpl.html" .}}
+{{template "navbar.html" .}}
+<div id="topic-detail">
+	<div class="page-header">
+	  	<h1>{{.topic.Title}}</h1>
+	    <div class="btn-group btn-group-sm pull-right">
+	  	</div>
+		  <div class="post-meta">
+           <a class="tag" href="/#">社区</a>•<a class="tag" href="/#">活动</a>•作者 <a href="/#">hawaii162162</a>•<span class="time">39分钟前</span>•<span class="last-reply">最后回复来自 <a href="/#">scpman</a></span>•<span class="time">15分钟前</span>
+          </div>
+	  </div>
+	<div class="markdown-body editormd-preview-container">
+		{{.topic.Body}}
+	</div>
+</div>
+{{template "footer.html" .}}
