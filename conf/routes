@@ -16,7 +16,6 @@ POST    /dopush                                 Article.DoPush
 *       /func                               	  App.Funcs
 *       /mobile                                 App.Mobile
 *       /                                       App.Index
-POST     /upload                                App.Upload
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

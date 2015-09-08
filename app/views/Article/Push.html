@@ -10,17 +10,20 @@
      <div class="form-group clearfix">
                     <div class="row">
                          <div class="col-md-3">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择话题... <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">以撒のNews</a></li>
-                            <li><a href="#">相关的新闻</a></li>
-                            <li><a href="#">同人文</a></li>
-                            <li><a href="#">纯手绘</a></li>
-                            <li><a href="#">漫画</a></li>
-                            <li><a href="#">Mod</a></li>
-                            <li><a href="#">Seed种子</a></li>
-                            <li><a href="#">活动</a></li>
-                          </ul>
+                 		{{with $field := field "topic.Tag" .}}
+						<select id="{{$field.Id}}" name="{{$field.Name}}" class="form-control select2-offscreen" placeholder="选择话题..." rel="select2" tabindex="-1">
+							<option value="-1">请选择话题...</option>
+							<option value="1">以撒のNews</option>
+							<option value="2">其他新闻</option>
+							<option value="3">同人文</option>
+							<option value="4">纯手绘</option>
+							<option value="5">漫画</option>
+							<option value="6">美图</option>
+							<option value="7">Mod</option>
+							<option value="8">Seed种子</option>
+							<option value="9">活动</option>
+						</select>
+						{{end}}	
                         </div><!-- /btn-group -->
                         <div class="col-md-9">
                             <div class="post-title">
@@ -37,7 +40,7 @@
           <textarea style="display:none;" placeholder="请输入内容..." name="Body" ></textarea>
 		</div>
 	  </div>
-	  <input type="submit" id="submit" class="btn bun-small btn-success" value="{{.title}}" style="float:right;">
+	  <input type="submit" id="submit" class="btn bun-small btn-success" value="{{.title}}" style="float:right;width:100px;">
   </form>
 <script type="text/javascript">
   var editor = editormd("editormd", {
