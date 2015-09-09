@@ -1,4 +1,5 @@
 {{set . "title" "发布"}}
+{{set . "nav" "发布新话题"}}
 {{set . "home" "active" }}
 {{append . "moreScripts" "js/editormd.min.js"}}
 {{append . "moreScripts" "js/bootstrap.min.js"}}
@@ -6,24 +7,20 @@
 
 {{template "content_tpl.html" .}}
 {{template "navbar.html" .}}
-<form action="/dopush" method="post" id="topic-form" role="form">
+<form action="/dopush" method="post" id="topic-form" role="form" onSubmit="$('#topic_Tag').val()==-1;return false;">
      <div class="form-group clearfix">
                     <div class="row">
                          <div class="col-md-3">
-                 		{{with $field := field "topic.Tag" .}}
-						<select id="{{$field.Id}}" name="{{$field.Name}}" class="form-control select2-offscreen" placeholder="选择话题..." rel="select2" tabindex="-1">
+                 		
+						<select id="topic_Tag" name="topic.Tag" class="form-control select2-offscreen" placeholder="选择话题..." rel="select2" tabindex="-1">
 							<option value="-1">请选择话题...</option>
-							<option value="1">以撒のNews</option>
-							<option value="2">其他新闻</option>
-							<option value="3">同人文</option>
-							<option value="4">纯手绘</option>
-							<option value="5">漫画</option>
-							<option value="6">美图</option>
-							<option value="7">Mod</option>
-							<option value="8">Seed种子</option>
-							<option value="9">活动</option>
+							{{if .tags}}
+								{{range $tag := .tags}}
+									<option value="{{$tag.Id}}">{{$tag.Name}}</option>
+								{{end}}	
+							{{end}}	
 						</select>
-						{{end}}	
+					
                         </div><!-- /btn-group -->
                         <div class="col-md-9">
                             <div class="post-title">
@@ -40,7 +37,7 @@
           <textarea style="display:none;" placeholder="请输入内容..." name="Body" ></textarea>
 		</div>
 	  </div>
-	  <input type="submit" id="submit" class="btn bun-small btn-success" value="{{.title}}" style="float:right;width:100px;">
+	  <input type="submit" id="submit" class="btn bun-small btn-success" value="{{.title}}" style="float:right;width:100px;" >
   </form>
 <script type="text/javascript">
   var editor = editormd("editormd", {

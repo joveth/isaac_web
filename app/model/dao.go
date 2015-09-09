@@ -8,13 +8,13 @@ type Dao struct {
 	session *mgo.Session
 }
 
+// db and tables
 const (
-	DbName            = "isaac"
-	UserCollection    = "user"
-	TopicCollection   = "topic"
-	MessageCollection = "gb_messages"
-	HistoryCollection = "gb_historys"
-	EmailCollection   = "gb_emails"
+	DBNAME   = "isaac"
+	T_USER   = "user"
+	T_TOPIC  = "topic"
+	T_TAG    = "tag"
+	PAGESIZE = 10
 )
 
 func NewDao() (*Dao, error) {

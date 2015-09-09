@@ -1,6 +1,11 @@
 package app
 
-import "github.com/revel/revel"
+import (
+	"fmt"
+	"github.com/revel/revel"
+	"testapp/app/model"
+	"time"
+)
 
 func init() {
 	// Filters is the default set of global filters.
@@ -21,8 +26,39 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
-	// revel.OnAppStart(InitDB)
+	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
+	revel.TemplateFuncs["pls"] = func(a, b int) int { return a + b }
+	revel.TemplateFuncs["mis"] = func(a, b int) int { return a - b }
+	revel.TemplateFuncs["mo"] = func(a, b int) bool { return a%b == 0 }
+	revel.TemplateFuncs["gt"] = func(a, b int) bool { return a > b }
+	revel.TemplateFuncs["gTag"] = GetTag
+	revel.TemplateFuncs["timesince"] = Timesince
+}
+
+func GetTag(id int) string {
+	dao, err := model.NewDao()
+	defer dao.Close()
+	if err != nil {
+		return ""
+	}
+	tag := dao.GetTag(id)
+	return tag.Name
+}
+func Timesince(t time.Time) string {
+	seconds := int(time.Since(t).Seconds())
+	switch {
+	case seconds < 60:
+		return fmt.Sprintf("%d秒钟前", seconds)
+	case seconds < 60*60:
+		return fmt.Sprintf("%d分钟前", seconds/60)
+	case seconds < 60*60*24:
+		return fmt.Sprintf("%d小时前", seconds/(60*60))
+	case seconds < 60*60*24*100:
+		return fmt.Sprintf("%d天前", seconds/(60*60*24))
+	default:
+		return t.Format("2006-01-01")
+	}
 }
 
 // TODO turn this into revel.HeaderFilter
@@ -35,4 +71,22 @@ var HeaderFilter = func(c *revel.Controller, fc []revel.Filter) {
 	c.Response.Out.Header().Add("X-Content-Type-Options", "nosniff")
 
 	fc[0](c, fc[1:]) // Execute the next filter stage.
+}
+
+func InitDB() {
+	dao, err := model.NewDao()
+	defer dao.Close()
+	err = dao.InserTag(&model.Tag{1, "以撒のNews"})
+	err = dao.InserTag(&model.Tag{2, "相关新闻"})
+	err = dao.InserTag(&model.Tag{3, "同人文"})
+	err = dao.InserTag(&model.Tag{4, "纯手绘"})
+	err = dao.InserTag(&model.Tag{5, "漫画"})
+	err = dao.InserTag(&model.Tag{6, "美图"})
+	err = dao.InserTag(&model.Tag{7, "Mod"})
+	err = dao.InserTag(&model.Tag{8, "Seed种子"})
+	err = dao.InserTag(&model.Tag{9, "活动"})
+	err = dao.InserTag(&model.Tag{10, "社区发展"})
+	err = dao.InserTag(&model.Tag{11, "其他"})
+	if err != nil {
+	}
 }

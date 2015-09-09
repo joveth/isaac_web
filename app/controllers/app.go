@@ -2,20 +2,25 @@ package controllers
 
 import (
 	"github.com/revel/revel"
+	"testapp/app/model"
 )
 
 type App struct {
 	*revel.Controller
 }
 
-func (c App) Index() revel.Result {
-	//	dao, err := model.NewDao()
-	//	defer dao.Close()
-	//	err = dao.InserUser(&model.User{"joveth", "joveth1@163.com", "123456", "123456", time.Now(), "1"})
-	//	if err != nil {
-	//
-	//	}
-	return c.Render()
+func (c App) Index(page int) revel.Result {
+	revel.INFO.Printf("The page: %d", page)
+	dao, err := model.NewDao()
+	defer dao.Close()
+	if err != nil {
+		revel.ERROR.Printf("Unable to open db:error %v", err)
+		c.Response.Status = 500
+		return c.RenderError(err)
+	}
+	topics, pageno, totalPage := dao.GetTopics(page)
+	page = pageno
+	return c.Render(topics, page, totalPage)
 }
 func (c App) Mobile() revel.Result {
 	return c.Render()

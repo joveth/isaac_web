@@ -9,7 +9,6 @@ body{
 	background-attachment:fixed;
 }
 a{
-	color: #1abc9c;
 	text-decoration: none;
 	-webkit-transition: 0.25s;
 	-moz-transition: 0.25s;
@@ -45,9 +44,11 @@ ul{
 }
 a{
 	text-decoration:none;
+	color:#000;
 }
 a:hover,a:focus{
 	text-decoration:none;
+	color:#eb4f38;
 }
 .ul-nav{
 	position: relative;
@@ -431,6 +432,9 @@ dl.the-comments dd{
     color: #999;
     padding: 2px 3px;
 }
+.post .meta .tag:hover{
+	color: #eb4f38;
+}
 .paint-ul{
 	margin:0;
 	padding:0;
@@ -528,16 +532,47 @@ dl.the-comments dd{
     color: #aaa;
     padding: 5px 0;
 }
-
+.post-meta a{
+    color: #000;
+}
 .post-meta .tag {
     border-radius: 3px;
     padding: 2px 3px;
     background-color: #eee;
-	 color: #c82829;
+	color: #c82829;
 }
 #topic-detail{
 	border: 1px solid #ddd;
   	border-radius: 4px;
 	background-color: #fff;
 	padding :10px;
+}
+.pager {
+    padding-left: 0;
+    margin: 20px 0 10px 0;
+    text-align: center;
+    list-style: none;
+}
+.pager li {
+    display: inline;
+}
+.pager .disabled>a, .pager .disabled>a:hover, .pager .disabled>a:focus, .pager .disabled>span {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+.pager .pager-nums {
+    line-height: 30px;
+}
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pager .next>a, .pager .next>span {
+    float: right;
 }

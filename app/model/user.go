@@ -17,7 +17,7 @@ type User struct {
 }
 
 func (dao *Dao) InserUser(user *User) error {
-	uCollection := dao.session.DB(DbName).C(UserCollection)
+	uCollection := dao.session.DB(DBNAME).C(T_USER)
 	//set the time
 	user.CreateDate = time.Now()
 	_, err := uCollection.Upsert(bson.M{"email": user.Email}, user)
