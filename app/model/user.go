@@ -53,7 +53,7 @@ func (dao *Dao) GetUserByEmail(email string) *User {
 func (dao *Dao) GetUserLogoByName(name string) *User {
 	collection := dao.session.DB(DBNAME).C(T_USER)
 	user := new(User)
-	collection.Find(bson.M{"name": name}).Select(bson.M{"Logo": 1}).One(&user)
+	collection.Find(bson.M{"name": name}).Select(bson.M{"logo": 1}).One(&user)
 	return user
 }
 func (dao *Dao) GetUserForLogin(name string, pass string) *User {
