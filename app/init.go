@@ -33,6 +33,7 @@ func init() {
 	revel.TemplateFuncs["mis"] = func(a, b int) int { return a - b }
 	revel.TemplateFuncs["mo"] = func(a, b int) bool { return a%b == 0 }
 	revel.TemplateFuncs["gt"] = func(a, b int) bool { return a > b }
+	revel.TemplateFuncs["eq"] = func(a, b string) bool { return a == b }
 	revel.TemplateFuncs["gTag"] = GetTag
 	revel.TemplateFuncs["gUserLogo"] = GetUserLogo
 	revel.TemplateFuncs["gUser"] = GetUserByName
