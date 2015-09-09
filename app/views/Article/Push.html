@@ -7,7 +7,7 @@
 
 {{template "content_tpl.html" .}}
 {{template "navbar.html" .}}
-<form action="/dopush" method="post" id="topic-form" role="form" onSubmit="$('#topic_Tag').val()==-1;return false;">
+<form action="/dopush" method="post" id="topic-form" role="form" onSubmit="if($('#topic_Tag').val()==-1){return false;}return true;">
      <div class="form-group clearfix">
                     <div class="row">
                          <div class="col-md-3">
