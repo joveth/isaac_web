@@ -46,8 +46,9 @@
   <input type="submit" id="subBtn" class="btn bun-small btn-success" value="{{.title}}" style="float:right;width:100px;" ></form>
 <script type="text/javascript">
   var editor = editormd("editormd", {
-            path : "/public/lib/" ,
-      saveHTMLToTextarea : true
+      path : "/public/lib/" ,
+      saveHTMLToTextarea : true,
+      emoji:true
   });
 </script>
 {{template "footer.html" .}}
