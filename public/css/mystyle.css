@@ -28,6 +28,7 @@ a{
 }
 .container{
 	width:960px;
+	padding:0px;
 }
 .top-bar-inner{
 	min-height: 48px;
@@ -409,6 +410,7 @@ dl.the-comments dd{
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     -khtml-border-radius: 4px;
+	margin-bottom: 20px;
 }
 .post {
     padding: 10px 0;
@@ -504,7 +506,7 @@ dl.the-comments dd{
 }
 .width_720{
 	float:left;
-	width:720px;
+	width:740px;
 	
 }
 .breadcrumb {
@@ -517,7 +519,7 @@ dl.the-comments dd{
 }
 .page-header {
     padding:0 0  9px 0;
-	margin:0;
+	margin:0 0 10px 0;
     border-bottom: 1px solid #eee;
 }
 .page-header h1 {
@@ -546,6 +548,7 @@ dl.the-comments dd{
   	border-radius: 4px;
 	background-color: #fff;
 	padding :10px;
+	margin-bottom:12px;
 }
 .pager {
     padding-left: 0;
@@ -575,4 +578,38 @@ dl.the-comments dd{
 }
 .pager .next>a, .pager .next>span {
     float: right;
+}
+.login-box{
+	border: 1px solid #ddd;
+  	border-radius: 4px;
+	background-color: #fff;
+	padding :20px;
+}
+.auth-page .title {
+  font-size: 20px;
+  padding: 5px 0 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.img-rounded {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.content, #comments {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+}
+dd, dl#nodes dd {
+    margin-left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #CCC;
 }

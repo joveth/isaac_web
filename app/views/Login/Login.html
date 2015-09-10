@@ -1,0 +1,73 @@
+{{set . "title" "登录"}}
+{{set . "login" "active" }}
+{{template "header.html" .}}
+<div class="login-box">
+    <div class="row">
+        <div class="col-md-6 auth-page">
+            <h3 class="title">
+                <span class="glyphicon glyphicon-user"></span>
+                登录
+            </h3>
+			{{if .flash.error}}
+				<div class="alert alert-danger" role="alert" id="username-err" >{{.flash.error}}</div>
+			{{end}}
+            <form method="POST" action="/dologin" onSubmit="return doVali();" >
+                <div class="form-group">
+                    <label class="control-label" for="Name">用户名 或 邮箱/手机</label>
+                    <input id="Name" name="user.Name" type="text" value="" class="form-control" required></div>
+					<div class="alert alert-danger" role="alert" id="username-err" style="display:none;"></div>
+                <div class="form-group">
+                    <label class="control-label" for="LoginForm-Password">密码</label>
+                    <input id="Pass" name="user.Pass" type="password" value="" class="form-control" required></div>
+					<div class="alert alert-danger" role="alert" id="pass-err" style="display:none;"></div>
+                <button type="submit" class="btn btn-success" style="float:right" id="subBtn">
+                    登录&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+                <a href="/forgot" class="pull-right" style="padding:5px;margin-right:100px;">忘记密码?</a>
+            </form>
+        </div>
+
+        <div class="col-md-6 auth-page">
+            <div class="auth-page">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    帮助
+                </h3>
+                <p class="well">如果您还没有注册帐户的话，请先注册。</p>
+                <p>
+                    <a href="/register" class="btn btn-default">
+                        立即注册 <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+ function doVali(){
+    var user = $("#Name").val();
+    if(checkEmpty(user)){
+        $("#username-err").text("用户名 或 邮箱/手机");
+        $("#username-err").show();
+        return false;
+    }
+    var pass = $("#Pass").val();
+    if(checkEmpty(pass)){
+        $("#pass-err").text("请输入密码");
+        $("#pass-err").show();
+        return false;
+    }
+    
+	$("#subBtn").attr("disabled","disabled"); 
+    return true;
+ }
+function checkEmpty(str){
+    if(str==null||str==''){
+        return true;
+    }
+    return false;
+}
+ 
+</script>
+{{template "footer.html" .}}

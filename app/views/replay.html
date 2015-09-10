@@ -1,0 +1,46 @@
+<div id="replies" class="content">
+	<span>{{.repcnt}} 回复</span>
+	<hr>
+	{{if .replays}}
+	
+	<dl class="replies editormd-preview-container">
+	{{range $index,$replay := .replays}}
+		<dd >
+			<a href="/user?name={{$replay.UName}}" class="pull-left" style="margin-right: 10px;">
+				<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/{{gUserLogo $replay.UName}}?imageView2/2/w/48/h/48/q/100" alt="{{$replay.UName}}"></a>
+			<div class="info">
+				<span class="label label-default pull-right">#{{pls $index 1}}</span>
+				<a href="/user?name={{$replay.UName}}">{{$replay.UName}}</a>
+				• {{timesince $replay.CreateDate}}
+			</div>
+			<div class="space"></div>
+			<div class="reply-content">
+				<p style="margin-top:10px;">{{$replay.Content}}</p>
+			</div>
+			<div class="clear"></div>
+		</dd>
+		{{end}}
+	</dl>
+	{{end}}
+</div>
+
+<div id="reply" class="content">
+{{if .user}}
+	<form action="/docomment/{{.topic.Id.Hex}}" method="post" class="form-vertical" id="reply-form" role="form" onSubmit="if($('#content').val()==null||$('#content').val()==''){return false;}$('#subBtn').attr('disabled','disabled'); return true; ">
+		<fieldset>
+			<div class="form-group">
+				<label>新回复</label>
+				<div>
+				<textarea  placeholder="请输入内容..." name="content" id="content" class="form-control" style="overflow: hidden; word-wrap: break-word; resize: none; height: 100px;width:100%"></textarea>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-success" style="float:right" id="subBtn">
+                    回复&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+		</fieldset>
+	</form>
+	{{else}}
+		需要<a href="/login" class="btn bun-small btn-success">登录</a>才能回复
+	{{end}}
+</div>

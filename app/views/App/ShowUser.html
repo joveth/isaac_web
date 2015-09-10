@@ -1,0 +1,119 @@
+{{set . "title" "用户中心"}}
+{{set . "me" "active" }}
+{{template "header.html" .}}
+<div class="container breadcrumb"  style="padding:0">
+	{{if .userShow}}
+	<div style="width:25%;float:left;padding:20px;">
+		<img src="http://7xlhe5.com1.z0.glb.clouddn.com/{{.userShow.Logo}}?imageView2/2/w/200/h/200/q/100"  />
+		<h3>{{.userShow.Name}}</h3>
+		<p> <i class="glyphicon glyphicon-tags"></i>
+			&nbsp;&nbsp;{{.userShow.Email}}
+		</p>
+		<p> <i class="glyphicon glyphicon-time"></i>
+			&nbsp;&nbsp;加入时间•{{timesince .userShow.CreateDate}}
+		</p>
+	</div>
+	<div style="width:75%;float:left;padding:20px;">
+		{{if eq .user.Name .userShow.Name}}
+		<div style="margin-bottom:30px;">
+			<ul class="nav nav-tabs" id="avatar-tab" style="margin-bottom: 15px;">
+				<li class="active">
+					<a href="#default">默认头像</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="default" class="tab-pane fade row-fluid active in">
+					<form action="/chooseavatar?name={{.userShow.Name}}" method="post" onSubmit="$('#subBtn').attr('disabled','disabled'); return true;">
+						<div class="form-group">
+							<ul class="list-inline">
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="default1.jpg" checked >
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default1.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="default.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default2.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_brown.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default3.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_gentlemen.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default4.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_girl.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default5.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_strawberry_bg.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default6.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_strawberry.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default7.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+								<li>
+									<label>
+										<input type="radio" name="defaultAvatars" value="gopher_teal.jpg">
+										<img class="img-rounded" src="http://7xlhe5.com1.z0.glb.clouddn.com/default8.jpg?imageView2/2/w/48/h/48/q/100"></label>
+								</li>
+
+							</ul>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn btn-success" id="subBtn">选择头像</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		{{end}}
+		<div >
+			<h4>{{.userShow.Name}}最近发布的话题</h4>
+			<hr>
+			{{ if .topics}}
+		{{range $topic := .topics}}
+			<div class="post">
+				<h3 class="title" style="margin:0;">
+					<a href="/show/{{$topic.Id.Hex}}">{{$topic.Title}}</a>
+				</h3>
+				<div class="meta" style="margin:0;">
+					<a class="tag" href="/?tag={{$topic.Tag}}">{{gTag $topic.Tag}}</a>
+					•
+					<a href="/user?name={{$topic.UName}}">{{$topic.UName}}</a>
+					•
+					<span class="time" title='{{$topic.CreateDate.Format "2006-01-02 15:04"}} '>{{timesince $topic.CreateDate}}</span>
+					<div class="data hidden-xs pull-right">
+						{{$topic.Comment}}
+						<span class="glyphicon glyphicon-comment"></span>
+						&nbsp;&nbsp;
+					{{$topic.Read}}
+						<span class="glyphicon glyphicon-eye-open"></span>
+					</div>
+				</div>
+			</div>
+			{{end}}
+		{{end}}
+		</div>
+	</div>
+	{{else}}
+	对不起没有查询到结果
+	{{end}}
+</div>
+{{template "footer.html" .}}

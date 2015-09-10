@@ -14,6 +14,7 @@ const (
 	T_USER   = "user"
 	T_TOPIC  = "topic"
 	T_TAG    = "tag"
+	T_REPLAY = "replay"
 	PAGESIZE = 10
 )
 

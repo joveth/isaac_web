@@ -5,7 +5,7 @@ import (
 )
 
 type Isaac struct {
-	*revel.Controller
+	App
 }
 
 func (c Isaac) Index() revel.Result {

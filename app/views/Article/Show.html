@@ -4,20 +4,28 @@
 {{append . "moreScripts" "js/editormd.min.js"}}
 {{append . "moreScripts" "js/bootstrap.min.js"}}
 {{template "header.html" .}}
-
-{{template "content_tpl.html" .}}
-{{template "navbar.html" .}}
+{{template "side_user.html" .}}
 <div id="topic-detail">
 	<div class="page-header">
-	  	<h1>{{.topic.Title}}</h1>
-	    <div class="btn-group btn-group-sm pull-right">
-	  	</div>
-		  <div class="post-meta">
-           <a class="tag" href="/#">{{gTag .topic.Tag}}</a>•作者 <a href="/#">{{.topic.UName}}</a>•<span class="time" title='{{.topic.CreateDate.Format "2006-01-02 15:04"}} '>{{timesince .topic.CreateDate}}发布</span>•<span class="last-reply">最后更新时间•<span class="time">{{timesince .topic.LastUpdate}}</span>
-          </div>
-	  </div>
-	<div class="markdown-body editormd-preview-container">
-		{{.topic.Body}}
+		<h1>{{.topic.Title}}</h1>
+		<div class="btn-group btn-group-sm pull-right"></div>
+		<div class="post-meta">
+			<a class="tag" href="/?tag={{.topic.Tag}}">{{gTag .topic.Tag}}</a>
+			•作者
+			<a href="/{{.topic.UName}}">{{.topic.UName}}•</a>
+			<span class="time" title='{{.topic.CreateDate.Format "2006-01-02 15:04"}} '>{{timesince .topic.CreateDate}}发布•</span>
+			<span class="last-reply">最后更新时间•</span>
+			<span class="time">{{timesince .topic.LastUpdate}}•</span>
+			<span class="last-reply">阅读•</span>
+			<span class="time">{{.topic.Read}}次</span>
+			{{if eq .user.Name .topic.UName}}
+			<a href="/edit/{{.topic.Id.Hex}}" class="btn btn-default" style="float:right;display:inline;margin-top: -10px;margin-right: 5px;" title="编辑"> <i class="glyphicon glyphicon-edit"></i>
+				修改
+			</a>
+			{{end}}
+		</div>
 	</div>
+	<div class="markdown-body eÏditormd-preview-container">{{.topic.Body}}</div>
 </div>
+{{template "replay.html" .}}
 {{template "footer.html" .}}

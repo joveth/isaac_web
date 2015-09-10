@@ -55,14 +55,17 @@
                 <a href="/mobile" title="客户端">手机版</a>
               </li>
               <li><form class="navbar-search pull-left" action="#">
-              	<input type="text" class="search" name="kw" placeholder="图鉴搜索">
+              	<input type="text" class="search" name="kw" placeholder="搜索">
             	</form>
               </li>
 			  <li style="float:right!important;" >
+				{{if .user}}
+					<a href="user?name={{.user.Name}}" style="display:inline!important"><img src="http://7xlhe5.com1.z0.glb.clouddn.com/{{.user.Logo}}?imageView2/2/w/48/h/48/q/100" class="userlogo" /></a>
+				{{else}}
                 <div>
-				 <a href="/#" title="登录后可可以做很多事情哦" >登录</a> | <a href="/#" title="Register." >注册</a>
+				 <a href="/login" title="登录后可可以做很多事情哦" >登录</a> | <a href="/register" title="Register." >注册</a>
 				 </div>
-				<!--<img src="/public/img/iconfont-i.png" class="userlogo" />-->
+				{{end}}
               </li>
           </ul>
         </div>

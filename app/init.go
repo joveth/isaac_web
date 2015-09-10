@@ -3,6 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/revel/revel"
+	"testapp/app/controllers"
 	"testapp/app/model"
 	"time"
 )
@@ -33,7 +34,10 @@ func init() {
 	revel.TemplateFuncs["mo"] = func(a, b int) bool { return a%b == 0 }
 	revel.TemplateFuncs["gt"] = func(a, b int) bool { return a > b }
 	revel.TemplateFuncs["gTag"] = GetTag
+	revel.TemplateFuncs["gUserLogo"] = GetUserLogo
+	revel.TemplateFuncs["gUser"] = GetUserByName
 	revel.TemplateFuncs["timesince"] = Timesince
+	revel.InterceptMethod((*controllers.App).CheckUser, revel.BEFORE)
 }
 
 func GetTag(id int) string {
@@ -44,6 +48,28 @@ func GetTag(id int) string {
 	}
 	tag := dao.GetTag(id)
 	return tag.Name
+}
+func GetUserLogo(name string) string {
+	dao, err := model.NewDao()
+	defer dao.Close()
+	if err != nil {
+		return ""
+	}
+	user := dao.GetUserLogoByName(name)
+	if user.Logo == "" {
+		return "default.jpg"
+	}
+	return user.Logo
+}
+
+func GetUserByName(name string) *model.User {
+	dao, err := model.NewDao()
+	defer dao.Close()
+	if err != nil {
+		return nil
+	}
+	user := dao.GetUserByName(name)
+	return user
 }
 func Timesince(t time.Time) string {
 	seconds := int(time.Since(t).Seconds())

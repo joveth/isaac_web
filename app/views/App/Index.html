@@ -7,43 +7,53 @@
 	{{range $topic := .topics}}
 	<div class="post">
 		<div class="avatar">
-			<a href="#" title="88250">
-				<img src="http://avatar.golanghome.com/Fv48GshWyDH-exd813V7Cirt_Wup?imageView2/1/w/48/h/48">
-			</a>
+			<a href="/user?name={{$topic.UName}}" title="{{$topic.UName}}">
+				<img src="http://7xlhe5.com1.z0.glb.clouddn.com/{{gUserLogo $topic.UName}}?imageView2/2/w/48/h/48/q/100"></a>
 		</div>
 		<h3 class="title">
 			<a href="/show/{{$topic.Id.Hex}}">{{$topic.Title}}</a>
 		</h3>
 		<div class="meta">
-			<a class="tag" href="/?tag={{$topic.Tag}}">{{gTag $topic.Tag}}</a> • <a href="#">{{$topic.UName}}</a> • <span class="time" title='{{$topic.CreateDate.Format "2006-01-02 15:04"}} '>{{timesince $topic.CreateDate}}</span>
+			<a class="tag" href="/?tag={{$topic.Tag}}">{{gTag $topic.Tag}}</a>
+			•
+			<a href="/user?name={{$topic.UName}}">{{$topic.UName}}</a>
+			•
+			<span class="time" title='{{$topic.CreateDate.Format "2006-01-02 15:04"}} '>{{timesince $topic.CreateDate}}</span>
 			<div class="data hidden-xs pull-right">
-				  {{$topic.Read}} <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;
-				  {{$topic.Comment}} <span class="glyphicon glyphicon-eye-open"></span>
+				{{$topic.Comment}}
+				<span class="glyphicon glyphicon-comment"></span>
+				&nbsp;&nbsp;
+				{{$topic.Read}}
+				<span class="glyphicon glyphicon-eye-open"></span>
 			</div>
 		</div>
 	</div>
 	{{end}}
 	{{end}}
-	{{ if gt .totalPage 1 }} 
-	<div class="post-pg">                        
-	<ul class="pager">   
-			{{ if eq .page 1 }} 
-	        <li class=" previous disabled"><a >← 上一页</a></li>   
+	{{ if gt .totalPage 1 }}
+	<div class="post-pg">
+		<ul class="pager">
+			{{ if eq .page 1 }}
+			<li class=" previous disabled">
+				<a >← 上一页</a>
+			</li>
 			{{else}}
-			 <li class="previous "><a href="/?page={{mis .page 1}}" >← 上一页</a></li>   
-			{{end}} 
-			    <li class="pager-nums">
-			        {{.page}} / {{.totalPage}}
-			    </li>
-				  
-			{{ if eq .page .totalPage }}  
-	        <li class="next disabled"><a >下一页 →</a></li>    
-			{{else}}
-			<li class="next "><a href="/?page={{pls .page 1}}">下一页 →</a></li>   
+			<li class="previous ">
+				<a href="/?page={{mis .page 1}}&tag={{.tag}}" >← 上一页</a>
+			</li>
 			{{end}}
-	</ul>
- 	</div>
+			<li class="pager-nums">{{.page}} / {{.totalPage}}</li>
+			{{ if eq .page .totalPage }}
+			<li class="next disabled">
+				<a >下一页 →</a>
+			</li>
+			{{else}}
+			<li class="next ">
+				<a href="/?page={{pls .page 1}}&tag={{.tag}}">下一页 →</a>
+			</li>
+			{{end}}
+		</ul>
+	</div>
 	{{end}}
 </div>
-
 {{template "footer.html" .}}

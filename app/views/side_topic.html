@@ -1,0 +1,27 @@
+<div style="margin-bottom:10px;width:200px;float:right">
+ <a href="/push" class="btn bun-small btn-success" style="width:100%" ><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;发布话题</a>
+ {{if .abouts}}
+<div class="sidebox">
+	<div class="box-heading">新手导航</div>
+	<div class="box-body">
+		<ul class="sidebar-list">
+			{{range $topic := .abouts}}
+			<li><a href="/{{$topic.Id.Hex}}">{{$topic.Title}}</a></li>
+			{{end}}
+		</ul>
+	</div>
+ </div>
+{{end}}
+{{if .goods}}
+  <div class="sidebox">
+	<div class="box-heading">精华话题</div>
+	<div class="box-body">
+		<ul class="sidebar-list">
+			{{range $topic := .goods}}
+			<li><a href="/{{$topic.Id.Hex}}">{{$topic.Title}}</a></li>
+			{{end}}
+		</ul>
+	</div>
+ </div>
+{{end}}
+</div>

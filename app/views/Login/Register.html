@@ -1,0 +1,149 @@
+{{set . "title" "注册"}}
+{{set . "login" "active" }}
+{{template "header.html" .}}
+<div class="login-box">
+    <div class="row">
+        <div class="col-md-6 auth-page">
+            <h3 class="title">
+                <span class="glyphicon glyphicon-user"></span>
+                注册
+            </h3>
+					{{if .flash.error}}
+					<div class="alert alert-danger" role="alert" id="username-err" >{{.flash.error}}</div>
+					{{end}}
+            <form method="POST" action="/doregister" onSubmit="return doVali();">
+                <div class="form-group">
+                    <label class="control-label" for="LoginForm-UserName">用户名</label>
+                    <input id="username" name="user.Name" type="text" value="" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" id="username-err" style="display:none;"></div>
+                    <p class="help-block">最小长度为 3, 只允许字母加数字</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="LoginForm-Password">邮箱/手机</label>
+                    <input id="email" name="user.Email" type="text" value="" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" id="email-err" style="display:none;"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="LoginForm-Password">密码</label>
+                    <input id="password" name="user.Pass" type="password" value="" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" id="password-err" style="display:none;"></div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="LoginForm-Password">密码确认</label>
+                    <input id="repassword" name="repassword" type="password" value="" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" id="repassword-err" style="display:none;"></div>
+                </div>
+                <button type="submit" class="btn btn-success" style="float:right" id="subBtn">
+                    注册&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </form>
+        </div>
+
+        <div class="col-md-6 auth-page">
+            <div class="auth-page">
+                <h3 class="title">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    帮助
+                </h3>
+                <p class="well">已经注册帐户的用户，请直接登录。</p>
+                <p>
+                    <a href="/login" class="btn btn-default">
+                        现在登陆 <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+ function doVali(){
+    var user = $("#username").val();
+    var pattern = /[a-z0-9]/i;
+    if(checkEmpty(user)){
+        $("#username-err").text("请输入用户名");
+        $("#username-err").show();
+        return false;
+    }else {
+		if(user.length<3){
+			$("#username-err").text("用户名最小长度为 3");
+            $("#username-err").show();
+            return false;
+		}
+        var regex = /^[0-9A-Za-z]+$/;  
+        if (user.match(regex)) {  
+            $("#username-err").hide();
+        } else {  
+            $("#username-err").text("请输入合法的用户名");
+            $("#username-err").show();
+            return false;
+        }  
+    }
+    var mail = $("#email").val();
+    if(checkEmpty(mail)){
+        $("#email-err").text("请输入邮箱/手机");
+        $("#email-err").show();
+        return false;
+    }else {
+        if(checkMobile(mail)||checkEmail(mail)){
+            $("#email-err").hide();
+        }else{
+            $("#email-err").text("邮箱/手机不合法");
+             $("#email-err").show();
+             return false;
+        }
+
+    }
+    var pass =  $("#password").val();
+    if(checkEmpty(pass)){
+        $("#password-err").text("请输入密码");
+        $("#password-err").show();
+        return false;
+    }else if(pass.length<6){
+        $("#password-err").text("密码长度至少6位");
+        $("#password-err").show();
+        return false;
+    }else{
+         $("#password-err").hide();
+    }
+    var repass =  $("#repassword").val();
+    if(checkEmpty(repass)){
+        $("#repassword-err").text("请确认密码");
+        $("#repassword-err").show();
+        return false;
+    }else if(pass!=repass){
+        $("#repassword-err").text("两次密码不一致");
+        $("#repassword-err").show();
+        return false;
+    }else{
+         $("#repassword-err").hide();
+    }
+	$("#subBtn").attr("disabled","disabled"); 
+    return true;
+ }
+
+function checkEmpty(str){
+    if(str==null||str==''){
+        return true;
+    }
+    return false;
+}
+ function checkMobile(str) { 
+    var re = /^1\d{10}$/ 
+    if (re.test(str))  { 
+       return true;
+    } else { 
+       return false;
+    }
+}
+function checkEmail(str){
+ var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/ ;
+  if(re.test(str)){ 
+    return true;
+    }else{ 
+   return false;
+    }
+}
+</script>
+{{template "footer.html" .}}

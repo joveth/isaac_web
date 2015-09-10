@@ -23,7 +23,6 @@ func (dao *Dao) GetTag(id int) *Tag {
 	tag := new(Tag)
 	query := collection.Find(bson.M{"_id": id})
 	query.One(&tag)
-	revel.INFO.Printf("The GetTag(%d) result: %v", id, tag)
 	return tag
 }
 

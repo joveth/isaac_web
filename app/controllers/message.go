@@ -5,7 +5,7 @@ import (
 )
 
 type Message struct {
-	*revel.Controller
+	App
 }
 
 func (c Message) Index() revel.Result {

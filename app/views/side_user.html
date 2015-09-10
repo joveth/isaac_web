@@ -1,0 +1,20 @@
+
+<div style="margin-bottom:10px;width:200px;float:right">
+ <a href="/push" class="btn bun-small btn-success" style="width:100%" ><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;发布话题</a>
+{{if .topic}}
+{{$user :=gUser .topic.UName}}
+{{if $user}}
+<div class="sidebox">
+	<div class="box-heading">作者</div>
+	<div class="box-body">
+		<div class="avatar" style="padding:10px;">
+			<a href="/user?name={{$user.Name}}" title="{{$user.Name}}">
+				<img src="http://7xlhe5.com1.z0.glb.clouddn.com/{{$user.Logo}}?imageView2/2/w/48/h/48/q/100">{{$user.Name}}</a>
+		</div>
+	</div>
+ </div>
+{{end}}
+{{end}}
+</div>
+<div  class="width_720">
+{{template "navbar.html" .}}
