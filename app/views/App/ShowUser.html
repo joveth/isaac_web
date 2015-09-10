@@ -14,6 +14,7 @@
 		</p>
 	</div>
 	<div style="width:75%;float:left;padding:20px;">
+		{{if .user}}
 		{{if eq .user.Name .userShow.Name}}
 		<div style="margin-bottom:30px;">
 			<ul class="nav nav-tabs" id="avatar-tab" style="margin-bottom: 15px;">
@@ -83,6 +84,7 @@
 				</div>
 			</div>
 		</div>
+		{{end}}
 		{{end}}
 		<div >
 			<h4>{{.userShow.Name}}最近发布的话题</h4>

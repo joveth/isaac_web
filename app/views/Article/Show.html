@@ -18,7 +18,13 @@
 			<span class="time">{{timesince .topic.LastUpdate}}•</span>
 			<span class="last-reply">阅读•</span>
 			<span class="time">{{.topic.Read}}次</span>
-			
+			{{if .user}}
+			{{if eq .user.Name .topic.UName}}
+			<a href="/edit/{{.topic.Id.Hex}}" class="btn btn-default" style="float:right;display:inline;margin-top: -10px;margin-right: 5px;" title="编辑"> <i class="glyphicon glyphicon-edit"></i>
+				修改
+			</a>
+			{{end}}
+			{{end}}
 		</div>
 	</div>
 	<div class="markdown-body eÏditormd-preview-container">{{.topic.Body}}</div>
