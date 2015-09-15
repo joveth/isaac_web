@@ -110,6 +110,32 @@ func (dao *Dao) GetTopicsWithTag(page, tag int) ([]Topic, int, int) {
 	query.All(&topics)
 	return topics, page, totalPage
 }
+
+func (dao *Dao) GetTopicsWithTagForMob(page, tag int) []Topic {
+	topics := []Topic{}
+	if page < 1 {
+		return topics
+	}
+	collection := dao.session.DB(DBNAME).C(T_TOPIC)
+	count, err := collection.Count()
+	if err != nil {
+		revel.WARN.Printf("Count topic:  error %v", err)
+		count = 0
+	}
+	totalPage := count % PAGESIZE
+	if totalPage == 0 {
+		totalPage = count / PAGESIZE
+	} else {
+		totalPage = count/PAGESIZE + 1
+	}
+	if page > totalPage {
+		return topics
+	}
+	query := collection.Find(bson.M{"tag": tag, "status": 1}).Sort("-lastupdate").Limit(PAGESIZE).Skip((page - 1) * PAGESIZE)
+	query.All(&topics)
+	return topics
+}
+
 func (dao *Dao) GetGoodTopics(tag, num int) []Topic {
 	collection := dao.session.DB(DBNAME).C(T_TOPIC)
 	topics := []Topic{}

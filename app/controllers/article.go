@@ -56,9 +56,9 @@ func (c Article) DoPush(topic *model.Topic) revel.Result {
 	topic.UName = uName
 	dao, err := model.NewDao()
 	topic.Status = 1
-	if topic.Tag == 4 {
-		topic.Status = 0
-	}
+	//	if topic.Tag == 4 {
+	//		topic.Status = 0
+	//	}
 	defer dao.Close()
 	id, err := dao.InserTopic(topic)
 	if err != nil {
@@ -154,9 +154,9 @@ func (c Article) DoEdit(topic *model.Topic) revel.Result {
 	}
 	oldTopic.Title = topic.Title
 	oldTopic.Tag = topic.Tag
-	if topic.Tag == 4 {
-		oldTopic.Status = 0
-	}
+	//	if topic.Tag == 4 {
+	//		oldTopic.Status = 0
+	//	}
 	id, err := dao.EditTopic(oldTopic)
 	if err != nil {
 		revel.ERROR.Printf("Unable to save topic: %v error %v", topic, err)

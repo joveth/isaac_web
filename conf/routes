@@ -27,6 +27,11 @@ GET      /                                      App.Index
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
+POST /m/topics    	Mobile.GetTopics
+POST /m/login    	Mobile.Login
+POST /m/user   	 	Mobile.GetUser
+POST  /m/regist    	Mobile.Regist
+*    /m/show/:id   Mobile.Show
 # Map static resources from the /app/public folder to the /public path
 GET     /public/*filepath                       Static.Serve("public")
 
