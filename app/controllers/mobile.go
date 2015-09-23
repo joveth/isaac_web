@@ -143,6 +143,9 @@ func (c Mobile) Show(id string) revel.Result {
 }
 func (c Mobile) GetTwitter() revel.Result {
 	content, _ := utils.GetHTMLContentWithURL("https://twitter.com/MesutOzil1088")
-	revel.INFO.Printf("content: %v", content)
+	return c.RenderHtml(content)
+}
+func (c Mobile) GetFacebook() revel.Result {
+	content, _ := utils.GetHTMLContentWithURL("https://www.facebook.com/mesutoezil?fref=nf")
 	return c.RenderHtml(content)
 }
