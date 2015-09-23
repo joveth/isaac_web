@@ -32,6 +32,7 @@ POST /m/login    	Mobile.Login
 POST /m/user   	 	Mobile.GetUser
 POST  /m/regist    	Mobile.Regist
 *    /m/show/:id   Mobile.Show
+*    /m/getwitter  Mobile.GetTwitter
 # Map static resources from the /app/public folder to the /public path
 GET     /public/*filepath                       Static.Serve("public")
 
