@@ -77,6 +77,7 @@ func GetTwitterHTML(url string) (string, error) {
 		str, err := ioutil.ReadAll(response.Body)
 		bodystr := string(str)
 		//f := bytes.NewReader(str)
+
 		node, er := goquery.ParseString(bodystr)
 		if er == nil {
 			ns := node.Find(".cards-media-container div")
@@ -90,11 +91,9 @@ func GetTwitterHTML(url string) (string, error) {
 						na := img[0][(la + 1):]
 						la = strings.LastIndex(na, ":")
 						na = na[:la]
-						fmt.Printf("src=%s,name=%s", img[0], na)
 						if na != "" {
 							stt, _ := GetHTMLContentWithURL(img[0])
-							err = UploadString(stt, na)
-							fmt.Println(err)
+							go UploadString(stt, na)
 						}
 					}
 				}
