@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+
 	"github.com/revel/revel"
 	"math/rand"
 	"strconv"
@@ -142,7 +143,7 @@ func (c Mobile) Show(id string) revel.Result {
 	return c.RenderHtml(content)
 }
 func (c Mobile) GetTwitter() revel.Result {
-	content, _ := utils.GetHTMLContentWithURL("https://twitter.com/MesutOzil1088")
+	content, _ := utils.GetTwitterHTML("https://twitter.com/MesutOzil1088")
 	return c.RenderHtml(content)
 }
 func (c Mobile) GetFacebook() revel.Result {
