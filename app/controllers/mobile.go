@@ -150,3 +150,7 @@ func (c Mobile) GetFacebook() revel.Result {
 	content, _ := utils.GetHTMLContentWithURL("https://www.facebook.com/mesutoezil?fref=nf")
 	return c.RenderHtml(content)
 }
+func (c Mobile) GetMiMa() revel.Result {
+	content, _ := utils.GetHTML("https://www.findmima.com/")
+	return c.RenderHtml(content)
+}
