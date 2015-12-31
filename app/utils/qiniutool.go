@@ -61,11 +61,11 @@ func HttpPostForm(sel, mac, key, tab, tp string) string {
 	v.Set("table", tab)
 	url := "https://www.findmima.com/ajax.php?act=select"
 	if tp == "2" {
-		url = "https://kf.findmima.com/ajax.php?act=select"
+		url = "http://kf.findmima.com/ajax.php?act=select"
 	} else if tp == "3" {
 		url = "https://qq.findmima.com/ajax.php?act=select"
 	} else if tp == "4" {
-		url = "https://qun.findmima.com/ajax.php?act=select"
+		url = "http://qun.findmima.com/ajax.php?act=select"
 	}
 	fmt.Println(url)
 	param := ioutil.NopCloser(strings.NewReader(v.Encode()))
