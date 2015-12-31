@@ -53,14 +53,22 @@ func GetHTMLContent(name string) (string, error) {
 	}
 	return "", err
 }
-func HttpPostForm(sel, mac, key, tab string) string {
+func HttpPostForm(sel, mac, key, tab string, tp int) string {
 	v := url.Values{}
 	v.Set("select_act", sel)
 	v.Set("match_act", mac)
 	v.Set("key", key)
 	v.Set("table", tab)
+	url := "https://www.findmima.com/ajax.php?act=select"
+	if tp == 2 {
+		url = "https://kf.findmima.com/ajax.php?act=select"
+	} else if tp == 3 {
+		url = "https://qq.findmima.com/ajax.php?act=select"
+	} else if tp == 4 {
+		url = "https://qun.findmima.com/ajax.php?act=select"
+	}
 	param := ioutil.NopCloser(strings.NewReader(v.Encode()))
-	req, _ := http.NewRequest("POST", "https://www.findmima.com/ajax.php?act=select", param)
+	req, _ := http.NewRequest("POST", url, param)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	resp, _ := client.Do(req)
 	defer resp.Body.Close()

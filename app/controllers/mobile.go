@@ -155,6 +155,7 @@ func (c Mobile) GetMiMa() revel.Result {
 	mac := c.Request.Form["mac"][0]
 	key := c.Request.Form["key"][0]
 	tab := c.Request.Form["tab"][0]
-	content := utils.HttpPostForm(sel, mac, key, tab)
+	tp := c.Request.Form["tp"][0]
+	content := utils.HttpPostForm(sel, mac, key, tab, tp)
 	return c.RenderHtml(content)
 }
