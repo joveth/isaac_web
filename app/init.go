@@ -3,7 +3,6 @@ package app
 import (
 	"fmt"
 	"github.com/revel/revel"
-	"testapp/app/controllers"
 	"testapp/app/model"
 	"time"
 )
@@ -27,7 +26,7 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
-	revel.OnAppStart(InitDB)
+	//revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 	revel.TemplateFuncs["pls"] = func(a, b int) int { return a + b }
 	revel.TemplateFuncs["mis"] = func(a, b int) int { return a - b }
@@ -38,7 +37,7 @@ func init() {
 	revel.TemplateFuncs["gUserLogo"] = GetUserLogo
 	revel.TemplateFuncs["gUser"] = GetUserByName
 	revel.TemplateFuncs["timesince"] = Timesince
-	revel.InterceptMethod((*controllers.App).CheckUser, revel.BEFORE)
+	//revel.InterceptMethod((*controllers.App).CheckUser, revel.BEFORE)
 }
 
 func GetTag(id int) string {

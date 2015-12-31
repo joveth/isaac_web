@@ -151,6 +151,6 @@ func (c Mobile) GetFacebook() revel.Result {
 	return c.RenderHtml(content)
 }
 func (c Mobile) GetMiMa() revel.Result {
-	content, _ := utils.GetHTML("https://www.findmima.com/")
+	content := utils.HttpPostForm("3", "1", "247911950", "mydb3")
 	return c.RenderHtml(content)
 }

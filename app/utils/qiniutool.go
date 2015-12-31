@@ -10,6 +10,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -51,6 +52,21 @@ func GetHTMLContent(name string) (string, error) {
 		return bodystr, err
 	}
 	return "", err
+}
+func HttpPostForm(sel, mac, key, tab string) string {
+	v := url.Values{}
+	v.Set("select_act", sel)
+	v.Set("match_act", mac)
+	v.Set("key", key)
+	v.Set("table", tab)
+	param := ioutil.NopCloser(strings.NewReader(v.Encode()))
+	req, _ := http.NewRequest("POST", "https://www.findmima.com/ajax.php?act=select", param)
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	resp, _ := client.Do(req)
+	defer resp.Body.Close()
+	data, _ := ioutil.ReadAll(resp.Body)
+	return string(data)
+
 }
 func GetHTML(url string) (string, error) {
 	var err error
