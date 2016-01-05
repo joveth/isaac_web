@@ -67,13 +67,13 @@ func HttpPostForm(sel, mac, key, tab, tp string) string {
 	} else if tp == "4" {
 		url = "http://qun.findmima.com/ajax.php?act=select"
 	}
-	fmt.Println(url)
 	param := ioutil.NopCloser(strings.NewReader(v.Encode()))
 	req, _ := http.NewRequest("POST", url, param)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	resp, _ := client.Do(req)
 	defer resp.Body.Close()
 	data, _ := ioutil.ReadAll(resp.Body)
+	fmt.Println(string(data))
 	return string(data)
 
 }
