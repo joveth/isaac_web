@@ -63,7 +63,7 @@ func HttpPostForm(sel, mac, key, tab, tp string) string {
 	if tp == "2" {
 		url = "http://kf.findmima.com/ajax.php?act=select"
 	} else if tp == "3" {
-		url = "https://qq.findmima.com/ajax.php?act=select"
+		url = "http://qq.findmima.com/ajax.php?act=select"
 	} else if tp == "4" {
 		url = "http://qun.findmima.com/ajax.php?act=select"
 	}
