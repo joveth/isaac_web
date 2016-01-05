@@ -4,6 +4,8 @@
 
 module:testrunner
 
+POST /mima/  	Mobile.GetMiMa
+
 POST     /doregister                            App.DoRegister
 GET       /register                             App.Register
 GET       /user                             	  App.ShowUser
@@ -27,7 +29,7 @@ GET      /                                      App.Index
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
-POST /mima/  	Mobile.GetMiMa
+
 POST /m/topics    	Mobile.GetTopics
 POST /m/login    	Mobile.Login
 POST /m/user   	 	Mobile.GetUser
